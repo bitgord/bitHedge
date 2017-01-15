@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>BitHedge</title>
+  <meta name="description" content="">
+  <meta name="author" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" media="screen" href="css/style.css">
+  <link rel="stylesheet" media="screen" href="css/main.css">
+</head>
+<body>
+
+<header id="header" ng-app="">
+  <h1>BIT</h1>
+  <nav>
+    <ul>
+      <li><a href="whitepaper.html">Whitepaper</a></li>
+      <li><a href="case.html">Case Studies</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- particles.js container -->
+<div>
+  <a href="https://github.com/jnicol/particleground"><img style="position: absolute; top: 50px; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+  <center><div class="roww">
+    <div>
+     <h2 style="padding-top: 150px">How much Bitcoin should you own?</h2>
+     <p id="btc"></p>
+    </div>
+      <div class="row controls">
+        <div class="span2"><input type="text" class="input-block-level" style="width:30%;" id="UserWealth" placeholder="Enter Your Wealth"></div>
+        <div class="input-append span7">
+            <br />
+            <button class="span1 btn btn-primary" style="height:40px; width: 150px;" onclick ="Calculate()">Calculate</button>
+            <label id="sentence" style="margin:25px"></label><label id="BTCAmount" style="font-size:40px"></label>
+        </div>
+      </div>
+    </div>
+  </div></center>
+
+</div>
+
+<center>
+    <div class="row">
+      <div class="col-lg-12">
+          <h3 style="margin:25px">Resources</h3>
+      </div>
+      <br />
+      <div class="holder">
+        <div class="wrapper">
+           <div class="container">
+              <h5>Buy Bitcoin Online<br />
+              </h5>
+           </div>
+        </div>
+        <div class="wrapper">
+           <div class="container">
+              <h5>Buy Bitcoin in Person<br />
+              </h5>
+           </div>
+        </div>
+        <div class="wrapper">
+           <div class="container">
+              <h5>Download a Wallet<br />
+              </h5>
+           </div>
+        </div>
+      </div>
+    </div>
+    <br /><br/><br/>
+  </center>
+
+
+<!-- Footer -->
+<footer id="footer">
+
+  <!-- Menu -->
+    <ul class="menu">
+      <li>&copy; BIT</li><li>Miami Bitcoin Hackathon</li>
+    </ul>
+
+</footer>
+
+<!-- scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-route.js"></script>
+<script src="../particles.js"></script>
+<script src="js/app.js"></script>
+<script src="js/price.js"></script>
+
+<script>
+             
+              var GlobalWealth = 256000000000000;
+              var BTCPrice = 830;
+              var BTCSupply = 21000000;
+              var BTCMarketCap = BTCSupply*BTCPrice;
+
+              var Bitcoin = Math.round(BTCAmount, 8);             
+              
+              function Calculate() {
+               var Wealth = document.getElementById('UserWealth').value;
+                var Target = ((Wealth/GlobalWealth)*BTCMarketCap).toFixed(8);
+                 var BTCTarget = (Wealth/GlobalWealth)*BTCSupply;
+
+                document.getElementById('BTCAmount').innerHTML = BTCTarget + " BTC | " + BTCTarget*1000000 + " Bits" ;
+                document.getElementById('sentence').innerHTML = "This is your bitcoin hedge target. Owning this must bitcoin will guarantee your proportion of wealth within bitcoin.";
+                         
+                 
+           
+}
+
+      </script>
+
+
+</body>
+</html>
