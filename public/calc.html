@@ -12,27 +12,27 @@
 <body>
 
 <header id="header" ng-app="">
-  <h1>BIT</h1>
+  <h1>BitHedge</h1>
   <nav>
     <ul>
-      <li><a href="whitepaper.html">Whitepaper</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="./BitHedge.pdf" download="BitHedge Whitepaper">Whitepaper</a></li>
       <li><a href="case.html">Case Studies</a></li>
-      <li><a href="faq.html">FAQ</a></li>
     </ul>
   </nav>
 </header>
 
 <!-- particles.js container -->
 <div>
-  <a href="https://github.com/jnicol/particleground"><img style="position: absolute; top: 50px; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+  <a href="https://github.com/bitgord/bitHedge"><img style="position: absolute; top: 50px; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
 
   <center><div class="roww">
     <div>
-     <h2 style="padding-top: 150px">How much Bitcoin should you own?</h2>
+     <h2 style="padding-top: 80px">How much Bitcoin should you own?</h2>
      <p id="btc"></p>
     </div>
       <div class="row controls">
-        <div class="span2"><input type="text" class="input-block-level" style="width:30%;" id="UserWealth" placeholder="Enter Your Wealth"></div>
+        <div class="span2"><input type="text" class="input-block-level form-group" style="width:30%;" id="UserWealth" placeholder="Enter Your Wealth"></div>
         <div class="input-append span7">
             <br />
             <button class="span1 btn btn-primary" style="height:40px; width: 150px;" onclick ="Calculate()">Calculate</button>
@@ -53,19 +53,22 @@
       <div class="holder">
         <div class="wrapper">
            <div class="container">
-              <h5>Buy Bitcoin Online<br />
+              <a href="https://www.coinbase.com/join/55e066d99627486d5c0002b3"><img class="img-circle img-responsive img-center" style="width:30%" src="images/coinbase.jpg" alt=""></a>
+              <a href="https://www.coinbase.com/join/55e066d99627486d5c0002b3"><h5>Buy Bitcoin Online<br />
+              </a></h5>
+           </div>
+        </div>
+        <div class="wrapper">
+           <div class="container">
+              <a href="http://www.bitstop.co"><img class="img-circle img-responsive img-center" style="width:30%" src="images/bitstop.jpg" alt=""></a>
+              <a href="http://www.bitstop.co"><h5>Buy Bitcoin in Person<br /></a>
               </h5>
            </div>
         </div>
         <div class="wrapper">
            <div class="container">
-              <h5>Buy Bitcoin in Person<br />
-              </h5>
-           </div>
-        </div>
-        <div class="wrapper">
-           <div class="container">
-              <h5>Download a Wallet<br />
+              <a href="http://www.breadwallet.com"><img class="img-circle img-responsive img-center" style="width:30%" src="images/bread.jpg" alt=""></a>
+              <a href="http://www.breadwallet.com"><h5>Download a Wallet<br /></a>
               </h5>
            </div>
         </div>
@@ -98,16 +101,15 @@
               var BTCPrice = 830;
               var BTCSupply = 21000000;
               var BTCMarketCap = BTCSupply*BTCPrice;
-
-              var Bitcoin = Math.round(BTCAmount, 8);             
               
               function Calculate() {
                var Wealth = document.getElementById('UserWealth').value;
-                var Target = ((Wealth/GlobalWealth)*BTCMarketCap).toFixed(8);
-                 var BTCTarget = (Wealth/GlobalWealth)*BTCSupply;
+                var Target = ((Wealth/GlobalWealth)*BTCMarketCap);
 
+                 var BTCTarget = (Wealth/GlobalWealth)*BTCSupply;
+                BTCTarget = BTCTarget.toFixed(7);
                 document.getElementById('BTCAmount').innerHTML = BTCTarget + " BTC | " + BTCTarget*1000000 + " Bits" ;
-                document.getElementById('sentence').innerHTML = "This is your bitcoin hedge target. Owning this must bitcoin will guarantee your proportion of wealth within bitcoin.";
+                document.getElementById('sentence').innerHTML = "This is your bitcoin hedge target. Owning this much bitcoin will guarantee your proportion of wealth within bitcoin.";
                          
                  
            
